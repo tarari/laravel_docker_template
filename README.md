@@ -1,11 +1,11 @@
 
-### Instructions ###
+## Instructions to correct use ##
 
 1. Clone the repository
 ```
  git clone https://github.com/tarari/laravel_docker_template.git your_project
 ```
-2. change to your project and create laravel project inside
+2. change to your project and install  laravel project inside with name src
 ```
 cd <your_project>
 composer create-project laravel/laravel src
@@ -16,9 +16,9 @@ composer create-project laravel/laravel src
 ```
 docker compose up -d --build
 ```
-5. Execute your composer under your app container
+5. Execute migrations
 ```
-docker exec -it app composer install
+docker exec -it <app> php artisan migrate
 docker exec -it app php artisan migrate
 ```
 
