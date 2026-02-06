@@ -11,15 +11,27 @@ cd <your_project>
 composer create-project laravel/laravel src
 ```
 
-3. Adapt your docker-compose.yml to your environment
-4. Execute to build containers:
+3. Copy  .env 
+```
+cp .env.example .env
+```
+4. Adapt to your FQDN(yourdomain) in HOST tag in .env file. And consider change DB connections
+```
+HOST=yourdomain
+```
+
+5. Execute to build containers:
 ```
 docker compose up -d --build
 ```
-5. Execute migrations
+5. Execute migrations inside the php container
 ```
 docker exec -it <app> php artisan migrate
 docker exec -it app php artisan migrate
 ```
-
-
+6. Edit your /etc/hosts and add a new line:
+```
+127.0.0.1    yourdomain
+```
+6. If all has gone well.... access to 
+http://yourdomain
